@@ -1,5 +1,7 @@
+import 'package:bookly_app/features/home_page/presentation/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/utils/assets_data.dart';
 
@@ -19,8 +21,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initSlidingAnimation();
+    navigateToHomePage();
 
   }
+
   @override
   void dispose() {
     super.dispose();
@@ -69,5 +73,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
       end: Offset.zero,
     ).animate(animationController);
     animationController.forward();
+  }
+
+  void navigateToHomePage() {
+    Future.delayed(Duration(seconds: 3), (){
+      Get.to(()=> const HomePage(), transition: Transition.fadeIn, duration: Duration(milliseconds: 500));
+    }
+    );
   }
 }
