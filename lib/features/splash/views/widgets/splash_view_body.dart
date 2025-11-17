@@ -36,7 +36,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
         SvgPicture.asset(AssetsData.logo, width: 50, height: 50),
         const SizedBox(height: 8),
         AnimatedBuilder(
-
           builder: (context , _) {
             return SlideTransition(
               position: slidingAnimation,
@@ -52,6 +51,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
       ],
     );
   }
+
+
+
+
+
+
+
+
   void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
