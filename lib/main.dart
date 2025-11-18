@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
         brightness: Brightness.dark
       ),
-      home: SplashView(),
+      home: const SplashView(),
     );
   }
 }
