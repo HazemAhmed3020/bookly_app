@@ -1,4 +1,5 @@
 import 'package:bookly_app/features/home_page/presentation/view/widgets/custom_book_item.dart';
+import 'package:bookly_app/features/home_page/presentation/view/widgets/list_view_books.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_appbar.dart';
@@ -8,14 +9,12 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 48),
-      child: Column(children: [
+    return const Column(
+      children: [
         CustomAppbar(),
-        CustomBookItem(),
-
-      ]
-      ),
+        SizedBox(height: 20),
+        ListViewBooks()
+      ],
     );
   }
 }
