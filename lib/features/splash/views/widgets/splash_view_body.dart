@@ -43,7 +43,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           builder: (context , _) {
             return SlideTransition(
               position: slidingAnimation,
-              child: Text(
+              child: const Text(
                 'Read Free Books',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontFamily: 'DeliusUnicase'),
@@ -66,7 +66,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
     );
     slidingAnimation = Tween<Offset>(
       begin: const Offset(0, 10),
@@ -76,8 +76,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToHomePage() {
-    Future.delayed(Duration(seconds: 3), (){
-      Get.to(()=> const HomePage(), transition: Transition.fadeIn, duration: Duration(milliseconds: 500));
+    Future.delayed(const Duration(seconds: 3), (){
+      Get.to(()=> const HomePage(), transition: Transition.fadeIn, duration: const Duration(milliseconds: 500));
     }
     );
   }
