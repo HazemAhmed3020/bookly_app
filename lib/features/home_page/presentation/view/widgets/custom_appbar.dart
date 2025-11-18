@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../../../../core/utils/assets_data.dart';
+
+
+class CustomAppbar extends StatelessWidget {
+  const CustomAppbar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SvgPicture.asset(AssetsData.logo, width: 75, height: 18,),
+        IconButton(onPressed: (){}, icon: const FaIcon(FontAwesomeIcons.magnifyingGlass ,size: 22,) ),
+      ],
+    );
+  }
+}
