@@ -21,13 +21,14 @@ class CustomBestSellerBookDetails extends StatelessWidget {
               children: [
                 Text('Harry Potter and the Goblet of Fire', style: Styles.meduimdetails ,maxLines: 2, softWrap: true ,),
                 const SizedBox(height: 10,),
-                const Text('J.K. Rowling', style: TextStyle(color: Colors.white38 , fontWeight: FontWeight.w500 , fontSize: 15), textAlign: TextAlign.left,),
+                const Text('J.K. Rowling', style: TextStyle(color: Colors.blueGrey , fontWeight: FontWeight.w500 , fontSize: 15), textAlign: TextAlign.left,),
                 const SizedBox(height: 10,),
                 const Row(
                   children: [
                     Text('19.99 €', style: TextStyle(color: Colors.white , fontSize: 17 , fontWeight: FontWeight.w500),),
                     Spacer(flex: 1,),
-                    Text('⭐ 4.8 (2390)', textAlign: TextAlign.end,style: TextStyle(color: Colors.white , fontSize: 15 , fontWeight: FontWeight.w500) ),
+                    Text('⭐ 4.8 ', textAlign: TextAlign.end,style: TextStyle(color: Colors.white , fontSize: 15 , fontWeight: FontWeight.w500) ),
+                    Text(' (2390)', textAlign: TextAlign.end,style: TextStyle(color: Colors.white12 , fontSize: 15 , fontWeight: FontWeight.w500) ),
                   ],
                 )
               ],
