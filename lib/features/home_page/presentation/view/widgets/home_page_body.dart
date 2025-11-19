@@ -9,22 +9,31 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const CustomAppbar(),
-        const SizedBox(height: 20),
-        const ListViewBooks(),
-        const SizedBox(height: 30,),
-        Padding(
-          padding: const EdgeInsets.only(left: 30.0),
-          child: Text('Best Seller',textAlign: TextAlign.left,style: Styles.meduimHeading,),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomAppbar(),
+              const SizedBox(height: 20),
+              const ListViewBooks(),
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: Text(
+                  'Best Seller',
+                  textAlign: TextAlign.left,
+                  style: Styles.meduimHeading,
+                ),
+              ),
+            ],
+          ),
         ),
-         Padding(
-          padding: const EdgeInsets.only(left: 30.0 , right: 20),
-          child: SizedBox(
-              height: MediaQuery.of(context).size.height * .5, width: double.infinity,
-              child: const ListViewBestSellerItems()
+        const SliverToBoxAdapter(
+        child: Padding(
+            padding: EdgeInsets.only(left: 30.0 , right: 20),
+            child: ListViewBestSellerItems(),
           ),
         ),
       ],
