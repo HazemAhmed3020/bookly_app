@@ -27,10 +27,11 @@ class HomePageBody extends StatelessWidget {
                   style: Styles.meduimHeading,
                 ),
               ),
+             const SizedBox(height: 20,),
             ],
           ),
         ),
-        const SliverToBoxAdapter(
+        const SliverFillRemaining(
         child: Padding(
             padding: EdgeInsets.only(left: 30.0 , right: 20),
             child: ListViewBestSellerItems(),
