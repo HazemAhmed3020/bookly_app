@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 import 'custom_appbar.dart';
 
-class HomePageBody extends StatelessWidget {
-  const HomePageBody({super.key});
+class HomeViewBody extends StatelessWidget {
+  const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

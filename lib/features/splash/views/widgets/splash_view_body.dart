@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home_page/presentation/view/home_page.dart';
+import 'package:bookly_app/features/home_page/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -77,7 +77,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHomePage() {
     Future.delayed(const Duration(seconds: 3), (){
-      Get.to(()=> const HomePage(), transition: Transition.fadeIn, duration: const Duration(milliseconds: 500));
+      Get.to(()=> const HomeView(), transition: Transition.fadeIn, duration: const Duration(milliseconds: 500));
     }
     );
   }
