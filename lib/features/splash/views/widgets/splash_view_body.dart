@@ -1,8 +1,6 @@
-import 'package:bookly_app/features/home_page/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-
+import 'package:go_router/go_router.dart';
 import '../../../../core/utils/assets_data.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -21,9 +19,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initSlidingAnimation();
-    navigateToHomePage();
+    goToHomeScreen();
 
   }
+
+
 
   @override
   void dispose() {
@@ -40,7 +40,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         SvgPicture.asset(AssetsData.logo, width: 50, height: 50),
         const SizedBox(height: 8),
         AnimatedBuilder(
-          builder: (context , _) {
+          builder: (context, _) {
             return SlideTransition(
               position: slidingAnimation,
               child: const Text(
@@ -57,12 +57,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
 
-
-
-
-
-
-
   void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
@@ -74,11 +68,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
     ).animate(animationController);
     animationController.forward();
   }
-
-  void navigateToHomePage() {
-    Future.delayed(const Duration(seconds: 3), (){
-      Get.to(()=> const HomeView(), transition: Transition.fadeIn, duration: const Duration(milliseconds: 500));
-    }
-    );
+  void goToHomeScreen() {
+    Future.delayed(
+        const Duration(seconds: 2),
+            (){
+              GoRouter.of(context).push('/HomeView');
+        });
   }
+
 }
+
+
