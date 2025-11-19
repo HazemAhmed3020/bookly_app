@@ -7,7 +7,10 @@ class ListViewBestSellerItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
+        itemCount: 20,
         itemBuilder: (context , index){
           return const Padding(
          padding: EdgeInsets.only(bottom: 20.0),
