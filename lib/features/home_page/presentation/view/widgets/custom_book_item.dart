@@ -8,7 +8,7 @@ class CustomBookItem extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 4/5,
       child: Padding(
-        padding: const EdgeInsets.only(right: 16),
+        padding: const EdgeInsets.only(right: 10),
         child: Container(
           // height: 180, width: 140,
           decoration: BoxDecoration(
