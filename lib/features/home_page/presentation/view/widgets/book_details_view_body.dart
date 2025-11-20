@@ -1,5 +1,6 @@
 import 'package:bookly_app/features/home_page/presentation/view/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
+import '../../../../../core/utils/widgets/custom_button_action.dart';
 import 'custom_book_details_appbar.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -9,6 +10,7 @@ class BookDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const CustomBookDetailsAppbar(),
         const SizedBox(height: 5),
@@ -19,6 +21,7 @@ class BookDetailsViewBody extends StatelessWidget {
         const SizedBox(height: 40),
         const Text(
           'The Jungle Book',
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 30,
             color: Colors.white,
@@ -28,12 +31,12 @@ class BookDetailsViewBody extends StatelessWidget {
         const SizedBox(height: 10),
         const Text(
           'J.K. Rowling',
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.blueGrey,
             fontWeight: FontWeight.w500,
             fontSize: 20,
           ),
-          textAlign: TextAlign.left,
         ),
         const SizedBox(height: 20),
         const SizedBox(
@@ -43,7 +46,7 @@ class BookDetailsViewBody extends StatelessWidget {
             children: [
               Text(
                 '⭐ 4.8 ',
-                textAlign: TextAlign.end,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
@@ -71,31 +74,13 @@ class BookDetailsViewBody extends StatelessWidget {
               Expanded(child: ButtonAction(txtColor: Colors.white, backGroundColor: Color(0xFFEF8262), txt: 'Free Preview', borderRadius: BorderRadius.only(topRight: Radius.circular(12), bottomRight:  Radius.circular(12)),)),
             ],
           ),
-        )
+        ),
+        const SizedBox(height: 20,),
+        const Text('You can also like', style: TextStyle(color: Colors.white , fontSize: 18),textAlign: TextAlign.start,),
       ],
     );
   }
 }
 
-  class ButtonAction extends StatelessWidget {
-    const ButtonAction({super.key, required this.txtColor, required this.backGroundColor, required this.txt, this.borderRadius});
-    final Color txtColor;
-    final Color backGroundColor;
-    final String txt;
-    final BorderRadius? borderRadius;
-    @override
-    Widget build(BuildContext context) {
-      return SizedBox(
-        height: 50, width: double.infinity,
-        child: TextButton(
-          onPressed: (){},
-          style: TextButton.styleFrom(
-            shape: RoundedRectangleBorder(borderRadius: borderRadius ?? BorderRadius.circular(16)),
-            backgroundColor: backGroundColor,
-          ),
-          child: Text( txt , style: TextStyle(color: txtColor , fontSize: 20 , ),),
-        ),
-      );
-    }
-  }
+
   
