@@ -6,7 +6,7 @@ class CustomBookDetailsAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 30 , right: 30 , top: 48 , bottom: 20),
+      padding: const EdgeInsets.only(left: 30 , right: 30 , top: 48 ,),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
