@@ -31,8 +31,11 @@ class ListViewBooks extends StatelessWidget {
        } else if(state is FeaturedbooksFailure){
          return Text(state.errMessage);
        }
-       else {
+       else if(state is FeaturedbooksLoading) {
          return const Center(child: CircularProgressIndicator());
+       }
+       else{
+         return const Center(child: Text('oops there was an error'),);
        }
       },
     );
