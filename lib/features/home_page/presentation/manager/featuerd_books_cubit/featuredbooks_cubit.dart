@@ -9,7 +9,7 @@ class FeaturedbooksCubit extends Cubit<FeaturedbooksState> {
   FeaturedbooksCubit(this.homeRepo) : super(FeaturedbooksInitial());
   final HomeRepo homeRepo;
 
-  Future<void> fetchFeaturedBooks() async {
+  Future<void> featuredBooks() async {
     emit(FeaturedbooksLoading());
     var result = await homeRepo.fetchFeaturedBooks();
     result.fold(
