@@ -22,13 +22,14 @@ class ServerFailure extends Failure{
         case DioExceptionType.badCertificate:
           return ServerFailure('Bad Certificate with ApiServer');
         case DioExceptionType.badResponse:
-
+          return ServerFailure.fromResponse(dioException.response!.statusCode! , dioException.response!.data);
         case DioExceptionType.cancel:
           return ServerFailure('Cancel Error , try again');
         case DioExceptionType.connectionError:
           return ServerFailure('Connection Error , try again later');
         case DioExceptionType.unknown:
           return ServerFailure('Unknown Error , try again later');
+
       }
   }
   factory ServerFailure.fromResponse(int statuCode , dynamic response){
