@@ -3,6 +3,7 @@ import 'package:bookly_app/features/home_page/presentation/view/widgets/custom_b
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 class ListViewBooks extends StatelessWidget {
   const ListViewBooks({super.key});
 
@@ -19,9 +20,10 @@ class ListViewBooks extends StatelessWidget {
            child: Padding(
              padding: const EdgeInsets.only(left: 30.0),
              child: ListView.builder(
+                itemCount: state.books.length,
                  scrollDirection: Axis.horizontal,
                  itemBuilder: (context, index) {
-                   return const CustomBookItem();
+                   return CustomBookItem(imageUrl: state.books[index].items[index].volumeInfo!.imageLinks!.thumbnail!,);
                  }
              ),
            ),
@@ -31,7 +33,6 @@ class ListViewBooks extends StatelessWidget {
        }
        else {
          return const Center(child: CircularProgressIndicator());
-
        }
       },
     );
