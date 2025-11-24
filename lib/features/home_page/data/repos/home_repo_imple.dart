@@ -12,10 +12,12 @@ class HomeRepoImple implements HomeRepo{
   @override
   Future<Either<Failure, List<BooksModel>>> fetchNewestBooks() async {
     try{
-      var data =  await apiService.getBooks(endPoint: 'volumes?q=subject:Programming&feltering=free&Sorting=newest');
+      var data =  await apiService.getBooks(endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science&maxResults=40');
       List<BooksModel> books = [];
-      for(var item in data['items']){
-        books.add(BooksModel.fromJson(item));
+      if (data['items'] != null) {
+        for (var item in data['items']) {
+          books.add(BooksModel.fromJson(item));
+        }
       }
       return right(books);
     } catch(e){
@@ -29,7 +31,7 @@ class HomeRepoImple implements HomeRepo{
   @override
   Future<Either<Failure, List<BooksModel>>> fetchFeaturedBooks() async {
     try{
-      var data =  await apiService.getBooks(endPoint: 'volumes?q=subject:Programming');
+      var data =  await apiService.getBooks(endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming&maxResults=40');
       List<BooksModel> books = [];
       for(var item in data['items']){
         books.add(BooksModel.fromJson(item));

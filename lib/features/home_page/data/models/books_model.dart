@@ -1,12 +1,12 @@
-class BookModel {
+class BooksModel {
   final String? id;
   final VolumeInfo? volumeInfo;
   final SaleInfo? saleInfo;
 
-  BookModel({this.id, this.volumeInfo, this.saleInfo});
+  BooksModel({this.id, this.volumeInfo, this.saleInfo});
 
-  factory BookModel.fromJson(Map<String, dynamic> json) {
-    return BookModel(
+  factory BooksModel.fromJson(Map<String, dynamic> json) {
+    return BooksModel(
       id: json['id'],
       volumeInfo: json['volumeInfo'] != null
           ? VolumeInfo.fromJson(json['volumeInfo'])
