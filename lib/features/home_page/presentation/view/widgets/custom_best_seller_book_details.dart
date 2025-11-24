@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -11,7 +12,12 @@ class CustomBestSellerBookDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Image.network(img),
+        CachedNetworkImage(
+          imageUrl:  'https://m.media-amazon.com/images/I/71fbdVaXfpL._AC_UF894,1000_QL80_.jpg',
+          fit: BoxFit.fill,
+          placeholder: (context , url) => const Center(child: CircularProgressIndicator()),
+          errorWidget: (context , url , error )=> const Icon(Icons.warning),
+        ),
         SizedBox(width: 30, height: MediaQuery.of(context).size.height * .2,),
         Expanded(
           child: Column(
