@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 30.0),
                 child: Text(
-                  'Best Seller',
+                  'Newest Books',
                   textAlign: TextAlign.left,
                   style: Styles.meduimHeading,
                 ),
@@ -31,10 +31,10 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        const SliverFillRemaining(
+           const SliverFillRemaining(
         child: Padding(
             padding: EdgeInsets.only(left: 30.0 , right: 20),
-            child: ListViewBestSellerItems(),
+            child: ListViewBestSellerItems( ),
           ),
         ),
       ],

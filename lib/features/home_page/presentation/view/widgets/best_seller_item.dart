@@ -1,9 +1,11 @@
+import 'package:bookly_app/features/home_page/data/models/books_model.dart';
 import 'package:bookly_app/features/home_page/presentation/view/widgets/custom_best_seller_book_details.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
+  const BestSellerItem({super.key, required this.booksModel});
+  final BooksModel booksModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -15,7 +17,7 @@ class BestSellerItem extends StatelessWidget {
         ),
         width: MediaQuery.of(context).size.width - (30 - 45),
         height: MediaQuery.of(context).size.height * .18,
-        child: const CustomBestSellerBookDetails(),
+        child: CustomBestSellerBookDetails(imageUrl: booksModel.image, bookName: booksModel.title, authorName: booksModel.author, ratings: booksModel.rating, ratingsCounter: booksModel.count,),
       ),
     );
   }
