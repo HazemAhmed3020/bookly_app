@@ -36,7 +36,7 @@ class BookDetailsViewBody extends StatelessWidget {
                  const Expanded(child: ButtonAction(txtColor: Colors.black, backGroundColor: Colors.white, txt: 'Free', borderRadius: BorderRadius.only(topLeft: Radius.circular(12), bottomLeft:  Radius.circular(12)),)),
                   Expanded(child: ButtonAction(
                     onPressed:() async {
-                      Uri uri = Uri.parse(booksModel.volumeInfo!.infoLink!);
+                      Uri uri = Uri.parse(booksModel.url);
                     if (!await launchUrl(uri)) {
                     throw Exception('Could not launch $uri');
                     }

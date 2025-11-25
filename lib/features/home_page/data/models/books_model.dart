@@ -28,11 +28,12 @@ class BooksModel {
 
 
   String get image {
-    String? img = volumeInfo?.imageLinks?.thumbnail ?? volumeInfo?.imageLinks?.smallThumbnail;
-    if (img != null) {
-      return img.replaceAll('zoom=1', 'zoom=0').replaceAll('http://', 'https://');
+    if (volumeInfo?.imageLinks?.thumbnail != null) {
+      return volumeInfo!.imageLinks!.thumbnail!;
+    } else if (volumeInfo?.imageLinks?.smallThumbnail != null) {
+      return volumeInfo!.imageLinks!.smallThumbnail!;
     }
-    return 'https://via.placeholder.com/150';
+    return 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781476740195/the-library-book-9781476740195_hr.jpg';
   }
 
   String get title => volumeInfo?.title ?? 'No Title';
