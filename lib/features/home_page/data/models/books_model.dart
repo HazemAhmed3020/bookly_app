@@ -2,8 +2,14 @@ class BooksModel {
   final String? id;
   final VolumeInfo? volumeInfo;
   final SaleInfo? saleInfo;
+  final AccessInfo? accessInfo;
 
-  BooksModel({this.id, this.volumeInfo, this.saleInfo});
+  BooksModel({
+    this.id,
+    this.volumeInfo,
+    this.saleInfo,
+    this.accessInfo,
+  });
 
   factory BooksModel.fromJson(Map<String, dynamic> json) {
     return BooksModel(
@@ -14,10 +20,20 @@ class BooksModel {
       saleInfo: json['saleInfo'] != null
           ? SaleInfo.fromJson(json['saleInfo'])
           : null,
+      accessInfo: json['accessInfo'] != null
+          ? AccessInfo.fromJson(json['accessInfo'])
+          : null,
     );
   }
 
 
+  String get image {
+    String? img = volumeInfo?.imageLinks?.thumbnail ?? volumeInfo?.imageLinks?.smallThumbnail;
+    if (img != null) {
+      return img.replaceAll('zoom=1', 'zoom=0').replaceAll('http://', 'https://');
+    }
+    return 'https://via.placeholder.com/150';
+  }
 
   String get title => volumeInfo?.title ?? 'No Title';
 
@@ -35,8 +51,17 @@ class BooksModel {
       ? volumeInfo!.categories![0]
       : 'Computers';
 
-  String get url => volumeInfo?.previewLink ?? volumeInfo?.infoLink ?? '';
+  // 👇 3. تحديث الـ Getter ليعطي الأولوية لـ webReaderLink
+  String get url {
+    if (accessInfo?.webReaderLink != null) {
+      return accessInfo!.webReaderLink!;
+    }
+    return volumeInfo?.previewLink ?? volumeInfo?.infoLink ?? '';
+  }
 }
+
+// ... الكلاسات الأخرى (VolumeInfo, ImageLinks, SaleInfo, ListPrice) تبقى كما هي ...
+// سأكتبها لك بالكامل للتأكد من عدم وجود أخطاء
 
 class VolumeInfo {
   final String? title;
@@ -113,6 +138,19 @@ class ListPrice {
     return ListPrice(
       amount: json['amount'],
       currencyCode: json['currencyCode'],
+    );
+  }
+}
+
+// 👇 4. كلاس AccessInfo الجديد
+class AccessInfo {
+  final String? webReaderLink;
+
+  AccessInfo({this.webReaderLink});
+
+  factory AccessInfo.fromJson(Map<String, dynamic> json) {
+    return AccessInfo(
+      webReaderLink: json['webReaderLink'],
     );
   }
 }
