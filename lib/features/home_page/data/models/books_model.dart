@@ -17,14 +17,7 @@ class BooksModel {
     );
   }
 
-  String get image {
-    if (volumeInfo?.imageLinks?.thumbnail != null) {
-      return volumeInfo!.imageLinks!.thumbnail!;
-    } else if (volumeInfo?.imageLinks?.smallThumbnail != null) {
-      return volumeInfo!.imageLinks!.smallThumbnail!;
-    }
-    return 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781476740195/the-library-book-9781476740195_hr.jpg';
-  }
+
 
   String get title => volumeInfo?.title ?? 'No Title';
 
