@@ -2,6 +2,7 @@ import 'package:bookly_app/features/home_page/presentation/manager/featuerd_book
 import 'package:bookly_app/features/home_page/presentation/view/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 
 class ListViewBooks extends StatelessWidget {
@@ -23,7 +24,10 @@ class ListViewBooks extends StatelessWidget {
                 itemCount: state.books.length,
                  scrollDirection: Axis.horizontal,
                  itemBuilder: (context, index) {
-                   return CustomBookItem(imageUrl: state.books[index].image);
+                   return GestureDetector(
+                      onTap: () => GoRouter.of(context).push('/BookDetailsView' , extra: state.books[index]),
+                       child: CustomBookItem(imageUrl: state.books[index].image)
+                   );
                  }
              ),
            ),
