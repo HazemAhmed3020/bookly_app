@@ -1,9 +1,10 @@
-import 'package:bookly_app/features/home_page/data/models/books_model.dart';
 import 'package:bookly_app/features/home_page/presentation/view/widgets/book_details_section.dart';
 import 'package:bookly_app/features/home_page/presentation/view/widgets/custom_book_item.dart';
 import 'package:bookly_app/features/home_page/presentation/view/widgets/similar_books_listview.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../../../core/utils/widgets/custom_button_action.dart';
+import '../../../data/models/books_model.dart';
 import 'custom_book_details_appbar.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -28,12 +29,19 @@ class BookDetailsViewBody extends StatelessWidget {
             const SizedBox(height: 40),
              BookDetailsSection(booksModel: booksModel,),
             const SizedBox(height: 16,),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 35.0),
+             Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 35.0),
               child: Row(
                 children: [
-                  Expanded(child: ButtonAction(txtColor: Colors.black, backGroundColor: Colors.white, txt: '19.99€', borderRadius: BorderRadius.only(topLeft: Radius.circular(12), bottomLeft:  Radius.circular(12)),)),
-                  Expanded(child: ButtonAction(txtColor: Colors.white, backGroundColor: Color(0xFFEF8262), txt: 'Free Preview', borderRadius: BorderRadius.only(topRight: Radius.circular(12), bottomRight:  Radius.circular(12)),)),
+                 const Expanded(child: ButtonAction(txtColor: Colors.black, backGroundColor: Colors.white, txt: 'Free', borderRadius: BorderRadius.only(topLeft: Radius.circular(12), bottomLeft:  Radius.circular(12)),)),
+                  Expanded(child: ButtonAction(
+                    onPressed:() async {
+                      Uri uri = Uri.parse(booksModel.volumeInfo!.infoLink!);
+                    if (!await launchUrl(uri)) {
+                    throw Exception('Could not launch $uri');
+                    }
+                  },
+                    txtColor: Colors.white, backGroundColor: const Color(0xFFEF8262), txt: 'Free Preview', borderRadius: const BorderRadius.only(topRight: Radius.circular(12), bottomRight:  Radius.circular(12)),)),
                 ],
               ),
             ),

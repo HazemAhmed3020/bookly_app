@@ -17,7 +17,6 @@ class BooksModel {
     );
   }
 
-
   String get image {
     if (volumeInfo?.imageLinks?.thumbnail != null) {
       return volumeInfo!.imageLinks!.thumbnail!;
@@ -42,6 +41,8 @@ class BooksModel {
   String get category => (volumeInfo?.categories?.isNotEmpty ?? false)
       ? volumeInfo!.categories![0]
       : 'Computers';
+
+  String get url => volumeInfo?.previewLink ?? volumeInfo?.infoLink ?? '';
 }
 
 class VolumeInfo {
@@ -51,6 +52,8 @@ class VolumeInfo {
   final num? averageRating;
   final num? ratingsCount;
   final List<String>? categories;
+  final String? previewLink;
+  final String? infoLink;
 
   VolumeInfo({
     this.title,
@@ -59,6 +62,8 @@ class VolumeInfo {
     this.averageRating,
     this.ratingsCount,
     this.categories,
+    this.previewLink,
+    this.infoLink,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) {
@@ -71,6 +76,8 @@ class VolumeInfo {
           : null,
       averageRating: json['averageRating'],
       ratingsCount: json['ratingsCount'],
+      previewLink: json['previewLink'],
+      infoLink: json['infoLink'],
     );
   }
 }
