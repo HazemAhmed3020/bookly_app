@@ -28,7 +28,7 @@ abstract class AppRouter{
         path: '/BookDetailsView',
         builder: (BuildContext context, GoRouterState state) {
           return  BlocProvider(create: (context) => SimilarBooksCubit( getIt.get<HomeRepoImple>(),),
-          child: const BookDetailsView(),
+          child: const BookDetailsView(booksModel: null,),
           );
         },
       ),
