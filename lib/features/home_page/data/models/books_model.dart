@@ -31,6 +31,10 @@ class BooksModel {
   num get rating => volumeInfo?.averageRating ?? 0;
 
   num get count => volumeInfo?.ratingsCount ?? 0;
+
+  String get category => (volumeInfo?.categories?.isNotEmpty ?? false)
+      ? volumeInfo!.categories![0]
+      : 'Computers';
 }
 
 class VolumeInfo {
@@ -39,6 +43,7 @@ class VolumeInfo {
   final ImageLinks? imageLinks;
   final num? averageRating;
   final num? ratingsCount;
+  final List<String>? categories;
 
   VolumeInfo({
     this.title,
@@ -46,12 +51,14 @@ class VolumeInfo {
     this.imageLinks,
     this.averageRating,
     this.ratingsCount,
+    this.categories,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) {
     return VolumeInfo(
       title: json['title'],
       authors: (json['authors'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+      categories: (json['categories'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
       imageLinks: json['imageLinks'] != null
           ? ImageLinks.fromJson(json['imageLinks'])
           : null,
