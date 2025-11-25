@@ -9,7 +9,7 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => GoRouter.of(context).push('/BookDetailsView'),
+      onTap: () => GoRouter.of(context).push('/BookDetailsView' , extra: booksModel),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
