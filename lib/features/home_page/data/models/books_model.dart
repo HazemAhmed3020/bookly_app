@@ -51,7 +51,6 @@ class BooksModel {
       ? volumeInfo!.categories![0]
       : 'Computers';
 
-  // 👇 3. تحديث الـ Getter ليعطي الأولوية لـ webReaderLink
   String get url {
     if (accessInfo?.webReaderLink != null) {
       return accessInfo!.webReaderLink!;
@@ -60,8 +59,7 @@ class BooksModel {
   }
 }
 
-// ... الكلاسات الأخرى (VolumeInfo, ImageLinks, SaleInfo, ListPrice) تبقى كما هي ...
-// سأكتبها لك بالكامل للتأكد من عدم وجود أخطاء
+
 
 class VolumeInfo {
   final String? title;
@@ -142,7 +140,6 @@ class ListPrice {
   }
 }
 
-// 👇 4. كلاس AccessInfo الجديد
 class AccessInfo {
   final String? webReaderLink;
 
