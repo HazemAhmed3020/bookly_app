@@ -23,10 +23,10 @@ class BookDetailsViewBody extends StatelessWidget {
             const SizedBox(height: 5),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * .24),
-              child: const CustomBookItem(imageUrl: 'https://m.media-amazon.com/images/I/71fbdVaXfpL._AC_UF894,1000_QL80_.jpg',),
+              child:  CustomBookItem(imageUrl: booksModel.image,),
             ),
             const SizedBox(height: 40),
-            const BookDetailsSection(),
+             BookDetailsSection(booksModel: booksModel,),
             const SizedBox(height: 16,),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 35.0),
@@ -44,8 +44,9 @@ class BookDetailsViewBody extends StatelessWidget {
             ),
             const SizedBox(height: 20,),
             const SimilarBookListView(),
+            const SizedBox(height: 30,),
           ],
-                ),
+          ),
         ),
       ],
     );

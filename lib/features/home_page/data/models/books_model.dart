@@ -18,7 +18,14 @@ class BooksModel {
   }
 
 
-  String get image => volumeInfo?.imageLinks?.thumbnail ?? 'https://via.placeholder.com/150';
+  String get image {
+    if (volumeInfo?.imageLinks?.thumbnail != null) {
+      return volumeInfo!.imageLinks!.thumbnail!;
+    } else if (volumeInfo?.imageLinks?.smallThumbnail != null) {
+      return volumeInfo!.imageLinks!.smallThumbnail!;
+    }
+    return 'https://via.placeholder.com/150';
+  }
 
   String get title => volumeInfo?.title ?? 'No Title';
 
