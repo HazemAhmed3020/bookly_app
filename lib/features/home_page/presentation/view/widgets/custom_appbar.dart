@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets_data.dart';
 
@@ -16,7 +17,7 @@ class CustomAppbar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SvgPicture.asset(AssetsData.logo, width: 75, height: 18,),
-          IconButton(onPressed: (){}, icon: const FaIcon(FontAwesomeIcons.magnifyingGlass ,size: 22,) ),
+          IconButton(onPressed: ()=> GoRouter.of(context).push('/SearchView'), icon: const FaIcon(FontAwesomeIcons.magnifyingGlass ,size: 22,) ),
         ],
       ),
     );
